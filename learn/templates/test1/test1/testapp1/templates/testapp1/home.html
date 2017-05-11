@@ -1,0 +1,18 @@
+{% extends 'testapp1/base.html' %}
+
+{% block content %}
+{{ string }}
+<br>
+{% if request.user.is_authenticated %}
+    {{ request.user.username }}，您好！
+{% else %}
+    请登陆，这里放登陆链接
+{% endif %}
+<br>
+{{ request.path }}
+<br>
+{{ request.GET.urlencode }}
+<br>
+<a href="{{ request.path }}?{{ request.GET.urlencode }}&delete=1">当前网址加参数 delete</a>
+{% endblock %}
+
